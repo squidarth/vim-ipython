@@ -109,10 +109,8 @@ def km_from_string(s=''):
         raise ImportError("Could not find IPython. " + _install_instructions)
     from IPython.config.loader import KeyValueConfigLoader
     try:
-        from IPython.kernel import (
-            KernelManager,
-            find_connection_file,
-        )
+        from IPython.kernel.manager import KernelManager
+        from IPython.kernel.connect import find_connection_file
     except ImportError:
         #  IPython < 1.0
         from IPython.zmq.blockingkernelmanager import BlockingKernelManager as KernelManager
